@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"log"
 	"strconv"
 )
 
@@ -9,16 +10,12 @@ type Pair[T, U any] struct {
 	V U
 }
 
-func CastToInts(strs []string) ([]int, error) {
-	ints := []int{}
-	for _, s := range strs {
-		i, err := strconv.Atoi(s)
-		if err != nil {
-			return nil, err
-		}
-		ints = append(ints, i)
-	}
-	return ints, nil
+func HandledAtoi(numStr string) int {
+    num, err := strconv.Atoi(numStr)
+    if err != nil {
+        log.Fatalf("Invalid number: %q\n", numStr)
+    }
+    return num
 }
 
 func Sum(is ...int) int {
