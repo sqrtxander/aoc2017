@@ -32,7 +32,7 @@ func GetHashGrid(s string, falsy rune, truthy rune) HashGrid {
 	return result
 }
 
-func GetBoundedHashGrid(s string, falsy rune, truthy rune) (result BoundedHashGrid) {
+func ParseBoundedHashGrid(s string, falsy rune, truthy rune) (result BoundedHashGrid) {
 	lines := strings.Split(s, "\n")
 	result.Grid = GetHashGrid(s, falsy, truthy)
 	result.H = len(lines)

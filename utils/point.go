@@ -22,19 +22,19 @@ func ORIGIN3D() Point3D {
 type Direction complex128
 
 const (
-	NORTH Direction = complex(0, -1)
-	EAST  Direction = complex(1, 0)
-	SOUTH Direction = complex(0, 1)
-	WEST  Direction = complex(-1, 0)
+	UP Direction = complex(0, -1)
+	RIGHT  Direction = complex(1, 0)
+	DOWN Direction = complex(0, 1)
+	LEFT  Direction = complex(-1, 0)
 )
 
 // rotate direction clockwise
-func (d *Direction) RotateCW() {
+func (d *Direction) RotateLeft() {
 	*d *= complex(0, -1)
 }
 
 // rotate direction counter clockwise
-func (d *Direction) RotateCCW() {
+func (d *Direction) RotateRight() {
 	*d *= complex(0, 1)
 }
 
