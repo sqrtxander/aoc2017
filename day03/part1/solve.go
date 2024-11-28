@@ -36,28 +36,28 @@ func solve(s string) int {
 			X: -curr/2 + 1,
 			Y: curr / 2,
 		}
-		dir = utils.WEST
+		dir = utils.LEFT
 	} else {
 		p = utils.Point{
 			X: curr / 2,
 			Y: -curr / 2,
 		}
-		dir = utils.EAST
+		dir = utils.RIGHT
 	}
 
 	curr *= curr
 	for curr != d {
 		if p.X == p.Y && p.X > 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		if -p.X == p.Y && p.X < 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		if p.X == p.Y && p.X < 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		if p.X == -p.Y+1 && p.X > 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		p.MoveInDir(dir, 1)
 		curr++

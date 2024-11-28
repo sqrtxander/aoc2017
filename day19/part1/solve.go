@@ -16,7 +16,7 @@ func solve(s string) string {
 	lines := strings.Split(s, "\n")
 
 	var loc utils.Point
-	dir := utils.SOUTH
+	dir := utils.DOWN
 	grid := map[utils.Point]rune{}
 	for y, line := range lines {
 		for x, ch := range line {
@@ -38,22 +38,22 @@ func solve(s string) string {
 		if !slices.Contains([]rune("|-+"), ch) {
 			result += string(ch)
 		}
-		if ch == '+' && (dir == utils.NORTH || dir == utils.SOUTH) {
-			loc.MoveInDir(utils.EAST, 1)
+		if ch == '+' && (dir == utils.UP || dir == utils.DOWN) {
+			loc.MoveInDir(utils.RIGHT, 1)
 			if _, ok := grid[loc]; ok {
-				dir = utils.EAST
+				dir = utils.RIGHT
 			} else {
-				dir = utils.WEST
+				dir = utils.LEFT
 			}
-			loc.MoveInDir(utils.WEST, 1)
-		} else if ch == '+' && (dir == utils.EAST || dir == utils.WEST) {
-			loc.MoveInDir(utils.NORTH, 1)
+			loc.MoveInDir(utils.LEFT, 1)
+		} else if ch == '+' && (dir == utils.RIGHT || dir == utils.LEFT) {
+			loc.MoveInDir(utils.UP, 1)
 			if _, ok := grid[loc]; ok {
-				dir = utils.NORTH
+				dir = utils.UP
 			} else {
-				dir = utils.SOUTH
+				dir = utils.DOWN
 			}
-			loc.MoveInDir(utils.SOUTH, 1)
+			loc.MoveInDir(utils.DOWN, 1)
 		}
 		loc.MoveInDir(dir, 1)
 	}

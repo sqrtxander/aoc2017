@@ -15,22 +15,22 @@ func solve(s string) int {
 	d := utils.HandledAtoi(s)
 
 	p := utils.ORIGIN()
-	dir := utils.EAST
+	dir := utils.RIGHT
 
 	grid := map[utils.Point]int{p: 1}
 
 	for grid[p] < d {
 		if p.X == p.Y && p.X > 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		if -p.X == p.Y && p.X < 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		if p.X == p.Y && p.X < 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		if p.X == -p.Y+1 && p.X > 0 {
-			dir.RotateCCW()
+			dir.RotateRight()
 		}
 		p.MoveInDir(dir, 1)
 		newVal := 0
