@@ -5,8 +5,18 @@ type Point struct {
 	Y int
 }
 
+type Point3D struct {
+	X int
+	Y int
+	Z int
+}
+
 func ORIGIN() Point {
 	return Point{X: 0, Y: 0}
+}
+
+func ORIGIN3D() Point3D {
+	return Point3D{X: 0, Y: 0, Z: 0}
 }
 
 type Direction complex128
@@ -41,6 +51,10 @@ func (p *Point) MoveInDir(dir Direction, amount int) {
 // the manhattan distance between a point and the origin
 func (p Point) Manhattan() int {
 	return Abs(p.X) + Abs(p.Y)
+}
+
+func (p Point3D) Manhattan3D() int {
+	return Abs(p.X) + Abs(p.Y) + Abs(p.Z)
 }
 
 // the absolute value of an integer
@@ -78,4 +92,10 @@ func Add(p, q Point) Point {
 		X: p.X + q.X,
 		Y: p.Y + q.Y,
 	}
+}
+
+func (p *Point3D) Add(q Point3D) {
+	p.X += q.X
+	p.Y += q.Y
+	p.Z += q.Z
 }
