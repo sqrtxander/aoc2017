@@ -12,9 +12,9 @@ func ORIGIN() Point {
 type Direction complex128
 
 const (
-	NORTH Direction = complex(0, 1)
+	NORTH Direction = complex(0, -1)
 	EAST  Direction = complex(1, 0)
-	SOUTH Direction = complex(0, -1)
+	SOUTH Direction = complex(0, 1)
 	WEST  Direction = complex(-1, 0)
 )
 
